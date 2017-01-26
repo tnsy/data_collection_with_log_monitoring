@@ -5,17 +5,19 @@ import sys, time, socket, os
 if len(sys.argv) < 2:
     sys.exit('\nUSAGE: script <log_file_to_monitor> <output_file>\n\nEXITING\n')
 
+##### FILL IN BELOW WITH DESIRED SETTINGS
+commands_to_run = [''] #type in commands as a list: 'command_1', 'command_2'
+time_interval = int() #in seconds
+log_message = '' #type in what log message should break this from running
+##### 
+
 log_file = sys.argv[1]
 output_file = sys.argv[2]
 run = 0
 switch = 0
 border = '\n%s\n\n' % ('<>' * 25)
 border1 = '\n%s\n\n' % ('=' * 50)
-
-commands_to_run = [''] #type in commands as a list: 'command_1', 'command_2'
-time_interval = int() #in seconds
 hostname = socket.gethostname()
-log_message = '' #type in what log message should break this from running
 
 def initial_check(log_file): 
     with open(log_file, 'r') as f:
